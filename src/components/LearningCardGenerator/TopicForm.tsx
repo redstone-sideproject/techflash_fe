@@ -4,17 +4,19 @@ import toast from 'react-hot-toast'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
-function TopicForm() {
+function TopicForm({ fn }: { fn: () => void }) {
   const [topic, setTopic] = useState<string>('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
     if (topic.trim() === '') {
       toast.error('주제를 입력해주세요!', {
         duration: 1000,
       })
       return
     }
+    fn()
   }
 
   return (
