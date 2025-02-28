@@ -4,6 +4,7 @@ import { postLearningCard } from '@/apis/learningCard'
 import LearningCard from '@/components/cards/LearningCard'
 import MultipleChoiceQuestionCard from '@/components/cards/MultipleChoiceQuestionCard'
 import OXQuestionCard from '@/components/cards/OXQuestionCard'
+import SubjectiveQuestionCard from '@/components/cards/SubjectiveQuestionCard'
 import TopicExplanationCard from '@/components/cards/TopicExplanationCard'
 import TopicForm from '@/components/LearningCardGenerator/TopicForm'
 import CardLayout from '@/layouts/CardLayout'
@@ -47,10 +48,22 @@ function LearningCardGenerator() {
         ))}
       </CardLayout>,
     )
+
     newCards.push(
       <CardLayout category="객관식 퀴즈">
         {learningCards.answer.quiz.multiple_choice_questions.map((el) => (
           <MultipleChoiceQuestionCard
+            key={el.question}
+            content={el}
+          />
+        ))}
+      </CardLayout>,
+    )
+
+    newCards.push(
+      <CardLayout category="주관식 퀴즈">
+        {learningCards.answer.quiz.subjective_questions.map((el) => (
+          <SubjectiveQuestionCard
             key={el.question}
             content={el}
           />
