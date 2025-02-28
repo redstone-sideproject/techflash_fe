@@ -1,10 +1,11 @@
-import App from '@/App'
+// import App from '@/App'
+import Home from '@/pages/Home'
 import NotFound from '@/pages/NotFound'
 
 const routerInfo = [
   {
     path: '/',
-    element: <App />,
+    element: <Home />,
     children: [
       {
         path: '*',
