@@ -31,6 +31,9 @@ function LearningCardGenerator() {
           isPending={isPending}
         />
       </div>
+      <p className="py-5 text-center text-sm opacity-60">
+        AI를 통해 생성된 학습카드는 100%의 정확도를 보장하지 않습니다.
+      </p>
       <div>
         {isError && (
           <div className="animate-pulse text-center text-red-500">

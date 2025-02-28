@@ -3,7 +3,9 @@ type TContentLayoutProps = {
 }
 
 function ContentLayout({ children }: TContentLayoutProps) {
-  return <main className="mx-auto min-h-screen p-10">{children}</main>
+  return (
+    <main className="mx-auto flex min-h-screen flex-col p-10">{children}</main>
+  )
 }
 
 export default ContentLayout
