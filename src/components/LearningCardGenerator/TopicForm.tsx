@@ -4,9 +4,13 @@ import toast from 'react-hot-toast'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
-function TopicForm({ fn }: { fn: (arg: string) => void }) {
-  const [topic, setTopic] = useState<string>('')
+interface ITopicFormProps {
+  fn: (arg: string) => void
+  isPending: boolean
+}
 
+function TopicForm({ fn, isPending }: ITopicFormProps) {
+  const [topic, setTopic] = useState<string>('')
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -32,6 +36,7 @@ function TopicForm({ fn }: { fn: (arg: string) => void }) {
         <Button
           className="w-full"
           type="submit"
+          disabled={isPending}
         >
           학습 카드 생성
         </Button>

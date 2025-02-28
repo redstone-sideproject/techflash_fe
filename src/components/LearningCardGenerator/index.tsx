@@ -14,19 +14,22 @@ function LearningCardGenerator() {
     data: learningCardData,
     isError,
     isPending,
-    mutate: learningCardMutation,
+    mutateAsync: learningCardMutation,
   } = useMutation({
     mutationFn: postLearningCard,
   })
 
-  const handleLearningCard = (question: string) => {
-    learningCardMutation(question)
+  const handleLearningCard = async (question: string) => {
+    await learningCardMutation(question)
   }
 
   return (
     <div className="mx-auto max-w-4xl p-4">
       <div className="mb-8">
-        <TopicForm fn={handleLearningCard} />
+        <TopicForm
+          fn={handleLearningCard}
+          isPending={isPending}
+        />
       </div>
       <div>
         {isError && (
