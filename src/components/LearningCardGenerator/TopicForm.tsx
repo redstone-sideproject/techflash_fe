@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
-function TopicForm({ fn }: { fn: () => void }) {
+function TopicForm({ fn }: { fn: (arg: string) => void }) {
   const [topic, setTopic] = useState<string>('')
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -16,7 +16,7 @@ function TopicForm({ fn }: { fn: () => void }) {
       })
       return
     }
-    fn()
+    fn(topic)
   }
 
   return (
